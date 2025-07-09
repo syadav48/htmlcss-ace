@@ -1,0 +1,144 @@
+<!-- Custom data attributes -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="A modern, responsive web page showcasing best HTML practices."
+    />
+    <meta
+      name="keywords"
+      content="HTML, CSS, JavaScript, Web Development, Frontend"
+    />
+    <meta name="author" content="Suryoday Yadav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    .
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="preload" href="banner.jpg" as="image" />
+
+    <title>Sample Page</title>
+    <style>
+      .card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+      .alert {
+        padding: 10px;
+        background-color: #f44336;
+        color: white;
+        margin-top: 10px;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div data-user-id="12345" data-role="admin">Custom Data Attribute</div>
+    <canvas id="myCanvas" width="300" height="150"></canvas>
+    <iframe
+      src="https://example.com"
+      width="600"
+      height="400"
+      style="border: 1px solid #ccc"
+      title="Example Website"
+    >
+    </iframe>
+    <!-- used for another html page -->
+    <div contenteditable="true">Edit Me!</div>
+
+    <!-- template example -->
+    <h1>My Dynamic Cards</h1>
+    <button id="addCardBtn">Add Card</button>
+    <div id="cardContainer"></div>
+
+    <template id="cardTemplate">
+      <div class="card">
+        <h2>Card Title</h2>
+        <p>This is a dynamic card created from a template.</p>
+      </div>
+    </template>
+    <!-- ARIA Roles -->
+
+    <div role="navigation" aria-label="Main menu">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Main content area -->
+    <div role="main">
+      <h1>Welcome to Our Website</h1>
+      <p>This is a sample page demonstrating ARIA roles.</p>
+    </div>
+
+    <!-- progress value -->
+
+    <progress value="50" max="100"></progress>
+
+    <button onclick="showAlert()">Submit</button>
+
+    <div id="alertBox" class="alert" role="alert">
+      Error: Please fill out all required fields!
+    </div>
+
+    <script>
+      // custom attribute example
+      const customdiv = document.querySelector("div");
+      console.log(customdiv.dataset.userId);
+      console.log(customdiv.dataset.role);
+      console.log(customdiv);
+
+      //   canvas example
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = "red";
+      ctx.fillRect(50, 30, 100, 50);
+      ctx.beginPath();
+      ctx.arc(200, 75, 40, 0, 2 * Math.PI);
+      ctx.fillStyle = "green";
+      ctx.fill();
+
+      // Draw text
+      ctx.fillStyle = "black";
+      ctx.font = "16px Arial";
+      ctx.fillText("Hello Canvas!", 100, 140);
+
+      //   template example
+      const addCardBtn = document.getElementById("addCardBtn");
+      const cardContainer = document.getElementById("cardContainer");
+      const cardTemplate = document.getElementById("cardTemplate");
+
+      addCardBtn.addEventListener("click", () => {
+        // Clone the content of the template (deep clone means all child nodes are copied)
+        const cardClone = document.importNode(cardTemplate.content, true);
+
+        // Optionally update the card's content before appending it
+        const cardTitle = cardClone.querySelector("h2");
+        cardTitle.textContent =
+          "Dynamic Card " + (cardContainer.children.length + 1);
+
+        // Insert the cloned node into the DOM
+        cardContainer.appendChild(cardClone);
+      });
+
+      function showAlert() {
+        const alertBox = document.getElementById("alertBox");
+        alertBox.style.display = "block";
+      }
+    </script>
+
+    <noscript>
+      <p style="color: red">
+        JavaScript is disabled in your browser. Please enable it for full
+        functionality.
+      </p>
+    </noscript>
+  </body>
+</html>
