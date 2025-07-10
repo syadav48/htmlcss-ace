@@ -1,0 +1,42 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background: lightgray;
+      }
+
+      .child {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: tomato;
+        padding: 10px;
+      }
+      .center {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        background-color: aqua;
+        width: 300px;
+        height: 100px;
+      }
+      @media (max-width: 600px){
+        .center { 
+            background-color: gold;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center"> Center </div>
+    <div class="parent">
+      <div class="child">I'm absolute</div>
+    </div>
+  </body>
+</html>

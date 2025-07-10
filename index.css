@@ -1,0 +1,122 @@
+.box {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.red {
+  background-color: red;
+  z-index: 1;
+}
+
+.green {
+  background-color: green;
+  top: 80px;
+  left: 80px;
+  z-index: 2;
+}
+
+.blue {
+  background-color: blue;
+  top: 110px;
+  left: 110px;
+  z-index: 010;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  background-color: #f0f0f0;
+}
+
+.flex-item {
+  background-color: #4caf50;
+  color: white;
+  padding: 20px;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background-color: #e0e0e0;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: #2196f3;
+  color: white;
+  padding: 30px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.box1 {
+  width: 200px;
+  height: 200px;
+  background-color: tomato;
+  transition: background-color 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.box1:hover {
+  background-color: green;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  background-image: url("sprite.png"); /* The sprite image */
+  display: inline-block;
+}
+
+.home {
+  background-position: 0 0; /* First icon (Home) */
+}
+
+.search {
+  background-position: -32px 0; /* Second icon (Search) */
+}
+
+.user {
+  background-position: -64px 0; /* Third icon (User) */
+}
+
+.center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+    background-color: blueviolet;
+    left: 50%;
+    top: -50%;
+    width: 200px;
+    height: 100px;
+}
+
+@media (max-width: 600px) {
+    .element {
+        background-color: blue;
+    }
+}
+
+@media (max-width: 600px){
+    .center {
+        background-color: #4caf50;
+    }
+} 
